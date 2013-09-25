@@ -12,7 +12,7 @@ var makeQueue = function(){
   };
 
   instance.dequeue = function(){
-    size--;
+    size && size--;
   };
 
   instance.size = function(){
