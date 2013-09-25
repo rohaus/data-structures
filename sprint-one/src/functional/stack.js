@@ -13,10 +13,8 @@ var makeStack = function(){
   };
 
   instance.pop = function(){
-    var temp = storage[size];
-    delete storage[size];
     size && size--; 
-    return temp;
+    return storage[size];
   };
 
   instance.size = function(){
