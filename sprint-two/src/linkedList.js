@@ -1,3 +1,4 @@
+
 // Note: don't use an array to do this.
 var makeLinkedList = function(){
   var list = {};
@@ -22,7 +23,7 @@ var makeLinkedList = function(){
 
   list.contains = function(target){
     for(var key in list){
-      if(list.key.value === target){
+      if(list[key].value === target){
         return true;
       }
     }
