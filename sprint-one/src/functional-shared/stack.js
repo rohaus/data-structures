@@ -7,18 +7,18 @@ var makeStack = function() {
   return instance;
 };
 
-var stackMethods = {};
-stackMethods.push = function(value){
-  this.storage[this.count] = value;
-  this.count++;
-};
+var stackMethods = {
+  push: function(value){
+    this.storage[this.count] = value;
+    this.count++;
+  },
 
-stackMethods.pop = function(){
-  this.count && this.count--; 
-  return this.storage[this.count];
-};
+  pop: function(){
+    this.count && this.count--; 
+    return this.storage[this.count];
+  },
 
-stackMethods.size = function(){
-  return this.count;
+  size: function(){
+    return this.count;
+  }
 };
-
