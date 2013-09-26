@@ -1,18 +1,9 @@
 var makeStack = function() {
-  var instance = {};
-
-  // Use an object with numeric keys to store values
-  instance.storage = {};
-  instance.count = 0; // Hint: set an initial value here
-
-  // Implement the methods below
-
-  instance.push = stackMethods.push;
-
-  instance.pop = stackMethods.pop;
-
-  instance.size = stackMethods.size;
-
+  var instance = {
+    storage: {},
+    count: 0
+  };
+  _.extend(instance, stackMethods);
   return instance;
 };
 
