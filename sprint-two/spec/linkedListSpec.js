@@ -1,3 +1,4 @@
+
 describe("linkedList", function() {
   var linkedList;
 
@@ -48,5 +49,22 @@ describe("linkedList", function() {
     linkedList.addToTail(2);
     linkedList.removeHead();
     expect(linkedList.head).toEqual(2);
+  });
+
+  it("should return true if the list contains the target value in a list of one node", function(){
+    linkedList.addToTail(1);
+    expect(linkedList.contains(1)).toEqual(true);
+  });
+
+  it("should return true if the list contains the target value in a list of two nodes", function(){
+    linkedList.addToTail(3);
+    linkedList.addToTail(6);
+    expect(linkedList.contains(3)).toEqual(true);
+  });
+
+  it("should return false if the list does not contain the target value in a list of two nodes", function(){
+    linkedList.addToTail(3);
+    linkedList.addToTail(6);
+    expect(linkedList.contains(80)).toEqual(false);
   });
 });
