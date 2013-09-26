@@ -6,13 +6,11 @@ var makeQueue = function(){
   count: 0,
   first: 0,
   last: 0,
-  temp: null,
+  temp: null
   // Implement the methods below
-
-  enqueue: queueMethods.enqueue,
-  dequeue: queueMethods.dequeue,
-  size: queueMethods.size
   };
+
+  _.extend(instance, queueMethods);
 
   return instance;
 };
