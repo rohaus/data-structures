@@ -1,18 +1,18 @@
 var makeQueue = function(){
   // Hey! Copy your code from src/functional/queue.js and paste it here
-  var instance = {};
-
+  var instance = {
   // Use an object with numeric keys to store values
-  instance.storage = {};
-  instance.count = 0;
-  instance.first = 0;
-  instance.last = 0;
-  instance.temp = null;
+  storage: {},
+  count: 0,
+  first: 0,
+  last: 0,
+  temp: null,
   // Implement the methods below
 
-  instance.enqueue = queueMethods.enqueue;
-  instance.dequeue = queueMethods.dequeue;
-  instance.size = queueMethods.size;
+  enqueue: queueMethods.enqueue,
+  dequeue: queueMethods.dequeue,
+  size: queueMethods.size
+  };
 
   return instance;
 };
