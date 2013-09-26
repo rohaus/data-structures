@@ -23,13 +23,13 @@ describe("linkedList", function() {
 
   it("should take a value and add it to the end of the list", function() {
     linkedList.addToTail(1);
-    expect(linkedList.tail).toEqual(0);
+    expect(linkedList.tail).toEqual(1);
   });
   
   it("should return the value at the head after adding twice to the tail", function(){
     linkedList.addToTail(3);
     linkedList.addToTail(2);
-    expect(linkedList.head).toEqual(0);
+    expect(linkedList.head).toEqual(1);
   });
   
   it("should add a value to the end of the list and be able to remove the first value", function(){
@@ -47,6 +47,6 @@ describe("linkedList", function() {
     linkedList.addToTail(1);
     linkedList.addToTail(2);
     linkedList.removeHead();
-    expect(linkedList.head).toEqual(1);
+    expect(linkedList.head).toEqual(2);
   });
 });
