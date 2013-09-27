@@ -14,38 +14,75 @@ var HashTable = function(){
 
 HashTable.prototype.insert = function(key, value){
   var i = getIndexBelowMaxForKey(key, this._limit);
-  // console.log(i);
   var element = this._storage.get(i);
-  if (!element){
+  if (element === undefined){
     var newElement = [[key, value]];
     this._storage.set(i, newElement);
   }else{
-    // console.log("Is element an array?? " + Array.isArray(element));
-    // console.log("element is ", element);
     element.push([key,value]);
   }
 };
 
 HashTable.prototype.retrieve = function(key){
-  var i = getIndexBelowMaxForKey(key, this._limit);
-  console.log("Trying to retrieve...key: " + key);
-  console.log("this._storage.get(i) is: ", this._storage.get(i));
-  return this._storage.get(i)[0][1];
+  var bucketNo = getIndexBelowMaxForKey(key, this._limit);
+  // console.log("Trying to retrieve...key: " + key);
+  // console.log("this._storage.get(i) is: ", this._storage.get(bucket));
+  var result;
+  this._storage.each(function(bucket, pairNo){
+    // console.log("this is the pairNo : " + pairNo);
+    // console.log("bucket[pairNo] is", bucket[pairNo][0]);
+    debugger
+    if (bucket[pairNo] !== undefined && bucket[pairNo][0] === key){
+      debugger 
+      result = bucket[pairNo][1];
+    }
+  });
+  return result;
+  // write a test for checking collisions
 };
 
 HashTable.prototype.remove = function(key){
-  var i = getIndexBelowMaxForKey(key, this._limit);
-  this._storage.each(function(){
-    if ("If the array location contains the key, then delete it"){
-      this._storage.set(i, undefined);
+  var bucket = getIndexBelowMaxForKey(key, this._limit);
+  // var loop = function(i){
+  //   this._storage.each(function(value, index, collection){
+  //     if( index === i ){
+  //       console.log(value);
+  //     }
+  //   });
+  // };
+  // console.log("this._storage.get(i) is: ", this._storage.get(i));
+
+  // for (var storageLength = 0; storageLength < this._storage.get(i).length; storageLength++) {
+  //   // console.log("storageLength is: " + storageLength);
+  //   for (var p = 0; p < this._storage.get(i)[storageLength]; p++){
+  //       console.log("very deep inside : ", this._storage.get(i)[storageLength][p]);
+  //   }
+  // }
+  var len = this._storage.get(bucket).length;
+  for (var pairNo = 0; pairNo < len; pairNo++){
+    if (this._storage.get(bucket)[pairNo][0] === key){
+      this._storage.set(bucket, undefined);
     }
-  });
+  }
+  // loop(i);
+  // this._storage.each(function(value, index, collection){
+  //   console.log("value is: " + value);
+  //   console.log("index is: " + index);
+  //   console.log("collection is: ", collection);
+  //   console.log("");
+  //   for (var i = 0; i < this._storage.get(index).length; i++) {
+  //     if (this._storage.get(index) !== undefined && this._storage.get(index)[i][0] === key){
+  //       this._storage.set(index, undefined);
+  //     }
+  //   }
+  // });
 };
 
 // NOTE: For this code to work, you will NEED the code from hashTableHelpers.js
 // Start by loading those files up and playing with the functions it provides.
 // You don't need to understand how they work, only their interface is important to you
 
+// this._storage = {set, get, each}
 // {
 //  set:(index, value) storage[index] = value;
 //  get:(index) return storage[index];
@@ -53,5 +90,5 @@ HashTable.prototype.remove = function(key){
 //        for(var i = 0; i < storage.length; i++){
 //          callback(storage[i], i, storage);
 //        }
-// }
-// {set: fn, get: fn, each: fn, 0: [[key, value]]}
+// }                               V -storage    V -pairNo
+// {set: fn, get: fn, each: fn, 0: [[key, value],[key, value]]}
