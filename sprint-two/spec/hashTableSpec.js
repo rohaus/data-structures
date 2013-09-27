@@ -3,11 +3,6 @@ describe("hashTable", function() {
 
   beforeEach(function() {
     hashTable = new HashTable();
-    // console.log("the hashTable is: ", hashTable);
-    // console.log("Is the hashTable an array? "+Array.isArray(hashTable));
-    // console.log("the hashTable._storage is:", hashTable._storage);
-    // console.log("Is the hashTable._storage an array? "+Array.isArray(hashTable._storage));
-    // console.log("");
   });
   describe("general", function(){
     it("should have methods named 'insert' and 'retrieve", function() {
@@ -45,7 +40,7 @@ describe("hashTable", function() {
     it("should remove a key value pair from the hash table", function(){
       hashTable.insert("ken", "hungry");
       hashTable.remove("ken");
-      expect(hashTable.retrieve("ken")).toEqual(undefined);
+      expect(hashTable.retrieve("ken")).not.toBeDefined();
     });
   });
 
@@ -53,6 +48,13 @@ describe("hashTable", function() {
     it("should retrieve a value when the key is given", function(){
       hashTable.insert("ken", "hungry");
       expect(hashTable.retrieve("ken")).toEqual("hungry");
+    });
+
+    it("should retrieve a value when two keys are added", function(){
+      hashTable.insert("ken", "hungry");
+      hashTable.insert("rohaus", "tired");
+      expect(hashTable.retrieve("ken")).toEqual("hungry");
+      expect(hashTable.retrieve("rohaus")).toEqual("tired");
     });
   });
 });
