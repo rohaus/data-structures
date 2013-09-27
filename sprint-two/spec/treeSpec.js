@@ -2,9 +2,9 @@ describe("tree", function() {
   var tree;
 
   beforeEach(function() {
-    tree = makeTree();
+    tree = makeTree("mother");
   });
-
+/*
   it("should have methods named 'addChild' and 'contains', and a property named 'value'", function() {
     expect(tree.addChild).toEqual(jasmine.any(Function));
     expect(tree.contains).toEqual(jasmine.any(Function));
@@ -17,7 +17,7 @@ describe("tree", function() {
       expect(tree.children[0].value).toEqual("ken");
     });
   });
-
+*/
   // Add more tests here to test the functionality of tree.
   describe('contains', function(){
     it("should determine if a single tree contains a value",function(){
