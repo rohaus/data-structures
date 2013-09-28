@@ -79,32 +79,32 @@ describe("tree", function() {
   });
 
   describe("removeFromParent", function(){
-    it("should remove destroy the relationship between the child and the parent", function(){
+    it("should destroy the relationship between the child and the parent", function(){
       tree.addChild("ken");
       var child = tree.children[0];
-      child.removeFromParent();
+      tree.removeFromParent("ken");
       expect(child.parent).toEqual(undefined);
       expect(tree.children).toEqual(undefined);
     });
 
-    it("should remove destroy the relationship between the grandchild and the child", function(){
+    it("should destroy the relationship between the grandchild and the child", function(){
       tree.addChild("ken");
       var child = tree.children[0];
       child.addChild("rohaus");
       var grandChild = child.children[0];
-      grandChild.removeFromParent();
+      child.removeFromParent("rohaus");
       expect(grandChild.parent).toEqual(undefined);
       expect(child.children).toEqual(undefined);
     });
 
-    it("should remove destroy the relationship between one of the two children and the parent", function(){
+    it("should destroy the relationship between one of the two children and the parent", function(){
       tree.addChild("ken");
       var child = tree.children[0];
       tree.addChild("rohaus");
       var brother = tree.children[1];
-      child.removeFromParent();
+      tree.removeFromParent("ken");
       expect(brother.parent).toEqual("mother");
-      expect(tree.children).toEqual(["rohaus"]);
+      expect(tree.children[0].value).toEqual("rohaus");
       expect(child.parent).toEqual(undefined);
     });
   });
