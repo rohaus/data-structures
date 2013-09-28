@@ -68,40 +68,40 @@ describe("linkedList", function() {
     expect(linkedList.contains(80)).toEqual(false);
   });
 
-  // describe("doubly linkedLists", function(){
-  //   it("should have methods named 'addToTail', 'removeHead', 'contains', addToHead, and removeTail", function() {
-  //     expect(linkedList.addToTail).toEqual(jasmine.any(Function));
-  //     expect(linkedList.removeHead).toEqual(jasmine.any(Function));
-  //     expect(linkedList.contains).toEqual(jasmine.any(Function));
-  //     expect(linkedList.addToHead).toEqual(jasmine.any(Function));
-  //     expect(linkedList.removeTail).toEqual(jasmine.any(Function));
-  //   });
+  describe("doubly linkedLists", function(){
+    it("should have methods named 'addToTail', 'removeHead', 'contains', addToHead, and removeTail", function() {
+      expect(linkedList.addToTail).toEqual(jasmine.any(Function));
+      expect(linkedList.removeHead).toEqual(jasmine.any(Function));
+      expect(linkedList.contains).toEqual(jasmine.any(Function));
+      expect(linkedList.addToHead).toEqual(jasmine.any(Function));
+      expect(linkedList.removeTail).toEqual(jasmine.any(Function));
+    });
 
-  //   describe("addToHead", function(){
-  //     it("should be able to add to the head", function(){
-  //       linkedList.addToHead(3);
-  //       expect(linkedList.head).toEqual(0);
-  //     });
+    describe("addToHead", function(){
+      it("should be able to add to the head", function(){
+        linkedList.addToHead(3);
+        expect(linkedList.head).toEqual(0);
+      });
 
-  //     it("should take a value and add it to the head, when there is already a head", function(){
-  //       linkedList.addToTail(3);
-  //       linkedList.addToHead(70);
-  //       expect(linkedList.head).toEqual(-1);
-  //     });
-  //   });
+      it("should take a value and add it to the head, when there is already a head", function(){
+        linkedList.addToTail(3);
+        linkedList.addToHead(70);
+        expect(linkedList.head).toEqual(-1);
+      });
+    });
 
-  //   describe("removeTail", function(){
-  //     it("should be able to remove the tail", function(){
-  //       linkedList.addToHead(3);
-  //       linkedlist.removeTail();
-  //       expect(linkedList.tail).toEqual(0);
-  //     });
+    describe("removeTail", function(){
+      it("should be able to remove the tail", function(){
+        linkedList.addToHead(3);
+        linkedlist.removeTail();
+        expect(linkedList.tail).toEqual(0);
+      });
 
-  //     it("should take a value and add it to the head, when there is already a head", function(){
-  //       linkedList.addToTail(3);
-  //       linkedList.addToHead(70);
-  //       expect(linkedList.head).toEqual(-1);
-  //     });
-  //   });
-  // });
+      it("should take a value and add it to the head, when there is already a head", function(){
+        linkedList.addToTail(3);
+        linkedList.addToHead(70);
+        expect(linkedList.head).toEqual(-1);
+      });
+    });
+  });
 });
