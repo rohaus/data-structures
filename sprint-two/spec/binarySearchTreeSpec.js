@@ -11,4 +11,16 @@ describe("binarySearchTree", function() {
     expect(binarySearchTree.depthFirstLog).toEqual(jasmine.any(Function));
   });
   // add more tests here to test the functionality of binarySearchTree
+
+  describe("insert", function(){
+    
+  });
+
+  describe("contains", function(){
+
+  });
+
+  describe("depthFirstLog", function(){
+
+  });
 });
