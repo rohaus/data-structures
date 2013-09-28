@@ -9,11 +9,12 @@ var makeLinkedList = function(){
   list.addToTail = function(value){
     var newTail = list.makeNode(value);
     newTail.previous = list.tail;
+    debugger;
     if (list.head === null){
-      list.head++;
+      list.head = list.tail = 0;
     }
-    list.tail++;
     list[list.tail] = newTail;
+    list.tail++;
   };
 
   list.removeHead = function(){
