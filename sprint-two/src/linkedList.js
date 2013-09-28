@@ -22,14 +22,19 @@ var makeLinkedList = function(){
   };
 
   list.removeHead = function(){
+    // Need to fix removing and element when it is the only one
+    // Need to fix the list.head and list.tail value in the case above
     var temp = list[list.head].value;
-    if (list[list.head+1]!== undefined){
+    console.log("list[list.head+1] is: "+list[list.head+1]);
+    if (list[list.head+1] !== undefined){
       list[list.head+1].previous = null;
+      delete list[list.head];
+      list.head++;
     } else {
+      delete list[list.head];
       list.head = null;
+      list.tail = null;
     }
-    delete list[list.head];
-    list.head++;
     return temp;
   };
 
@@ -61,11 +66,13 @@ var makeLinkedList = function(){
     var temp = list[list.tail].value;
     if (list[list.tail-1]!== undefined){
       list[list.tail-1].next = null;
+      delete list[list.tail];
+      list.tail--;
     } else {
+      delete list[list.tail];
+      list.head = null;
       list.tail = null;
     }
-    delete list[list.tail];
-    list.tail--;
     return temp;
   };
   return list;
