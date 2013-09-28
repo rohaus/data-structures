@@ -93,8 +93,7 @@ describe("linkedList", function() {
     describe("removeTail", function(){
       it("should be able to remove the tail", function(){
         linkedList.addToHead(3);
-        linkedlist.removeTail();
-        expect(linkedList.tail).toEqual(0);
+        expect(linkedList.removeTail()).toEqual(3);
       });
 
       it("should take a value and add it to the head, when there is already a head", function(){

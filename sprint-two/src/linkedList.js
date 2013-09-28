@@ -23,6 +23,12 @@ var makeLinkedList = function(){
 
   list.removeHead = function(){
     var temp = list[list.head].value;
+    if (list[list.head+1]!== undefined){
+      list[list.head+1].previous = null;
+    } else {
+      list.head = null;
+    }
+    delete list[list.head];
     list.head++;
     return temp;
   };
@@ -51,11 +57,17 @@ var makeLinkedList = function(){
     list[list.head] = newHead;
   };
 
-  // list.removeTail = function(){
-  //   var temp = list[list.tail].value;
-  //   list.tail--;
-  //   return temp;
-  // };
+  list.removeTail = function(){
+    var temp = list[list.tail].value;
+    if (list[list.tail-1]!== undefined){
+      list[list.tail-1].next = null;
+    } else {
+      list.tail = null;
+    }
+    delete list[list.tail];
+    list.tail--;
+    return temp;
+  };
   return list;
 };
 
